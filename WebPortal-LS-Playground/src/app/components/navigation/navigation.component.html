@@ -1,0 +1,22 @@
+<div class="px-4">
+  <ul>
+    @for (item of getNavigationRoorItems() | async; track item.id) {
+    <li class="py-2">
+      <span class="text-xl">{{ item.name }}</span>
+      <ul class="pl-4">
+        @for (childItem of getNavigationChildItems(item.id) | async; track
+        childItem.id) {
+        <li class="flex items-center">
+          @if (childItem.module){
+          <mat-icon class="dense-5 text-[20px] align-middle material-icons-outlined mr-1">{{ getIcon(childItem.module) }}</mat-icon>
+          }
+          <a [routerLink]="childItem.route" routerLinkActive="active">{{
+            childItem.name
+          }}</a>
+        </li>
+        }
+      </ul>
+    </li>
+    }
+  </ul>
+</div>

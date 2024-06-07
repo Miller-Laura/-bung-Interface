@@ -1,0 +1,65 @@
+<lib-table-container module="Incident">
+  <mat-table
+    columnResize
+    matSort
+    [dataSource]="dataSource"
+    class="mat-elevation-z0"
+    style="overflow-y: auto"
+    libAttachToStore
+  >
+    <ng-container matColumnDef="title">
+      <mat-header-cell
+        resizable
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sortieren nach Titel"
+        i18n="@@titleHeader"
+        >Titel</mat-header-cell
+      >
+      <mat-cell *matCellDef="let item">{{ item.title }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <mat-header-cell
+        resizable
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sortieren nach Status"
+        i18n="@@statusHeader"
+        >Status</mat-header-cell
+      >
+      <mat-cell *matCellDef="let item">{{ item.status }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="priority">
+      <mat-header-cell
+        resizable
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sortieren nach Priorität"
+        i18n="@@priorityHeader"
+        >Priorität</mat-header-cell
+      >
+      <mat-cell *matCellDef="let item">{{ item.priority }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="created">
+      <mat-header-cell
+        resizable
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sortieren nach Erstellungsdatum"
+        i18n="@@createdHeader"
+        >Erstellt</mat-header-cell
+      >
+      <mat-cell *matCellDef="let item">{{ item.created | date }}</mat-cell>
+    </ng-container>
+    <mat-header-row
+      *matHeaderRowDef="
+        ['title', 'status', 'priority', 'created'];
+        sticky: true
+      "
+      i18n="@@tableHeaders"
+    ></mat-header-row>
+    <mat-row
+      *matRowDef="let item; columns: ['title', 'status', 'priority', 'created']"
+    ></mat-row>
+  </mat-table>
+</lib-table-container>

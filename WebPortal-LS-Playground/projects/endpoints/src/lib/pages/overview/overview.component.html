@@ -1,0 +1,102 @@
+<lib-table-container module="Endpoint">
+  <mat-table
+    columnResize
+    matSort
+    [dataSource]="dataSource"
+    class="mat-elevation-z0 overflow-y-auto"
+    libAttachToStore
+  >
+    <ng-container matColumnDef="name">
+      <mat-header-cell
+        resizable
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by Name"
+        i18n="@@nameHeader"
+        >Name</mat-header-cell
+      >
+      <mat-cell *matCellDef="let item">{{ item.name }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell
+        resizable
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by Status"
+        i18n="@@statusHeader"
+        >Status</mat-header-cell
+      >
+      <mat-cell *matCellDef="let item">{{ item.status }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="version">
+      <mat-header-cell
+        resizable
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by Version"
+        i18n="@@versionHeader"
+        >Version</mat-header-cell
+      >
+      <mat-cell *matCellDef="let item">{{ item.version }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lastupdate">
+      <mat-header-cell
+        resizable
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by Last Update"
+        i18n="@@lastUpdateHeader"
+        >Last Update</mat-header-cell
+      >
+      <mat-cell *matCellDef="let item">{{ item.lastupdate | date }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="tags">
+      <mat-header-cell
+        resizable
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by Tags"
+        i18n="@@tagsHeader"
+        >Tags</mat-header-cell
+      >
+      <mat-cell *matCellDef="let item">{{ item.tags }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="organizationPath">
+      <mat-header-cell
+        *matHeaderCellDef
+        resizable
+        mat-sort-header
+        sortActionDescription="Sort by Organization Path"
+        i18n="@@orgPathHeader"
+        >Organization Path</mat-header-cell
+      >
+      <mat-cell *matCellDef="let item">{{ item.organizationPath }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row
+      *matHeaderRowDef="
+        ['name', 'status', 'version', 'lastupdate', 'tags', 'organizationPath'];
+        sticky: true
+      "
+      i18n="@@tableHeaders"
+    ></mat-header-row>
+    <mat-row
+      *matRowDef="
+        let item;
+        columns: [
+          'name',
+          'status',
+          'version',
+          'lastupdate',
+          'tags',
+          'organizationPath'
+        ]
+      "
+    ></mat-row>
+  </mat-table>
+</lib-table-container>

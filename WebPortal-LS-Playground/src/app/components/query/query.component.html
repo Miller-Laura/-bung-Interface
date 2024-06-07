@@ -1,0 +1,41 @@
+<mat-form-field class="dense-5 w-[24rem]" subscriptSizing="dynamic">
+  <input
+    #query
+    #autoTrigger="matAutocompleteTrigger"
+    type="text"
+    placeholder="suchen..."
+    aria-label="query"
+    matInput
+    [matAutocomplete]="auto"
+    [value]="searchValue()"
+    (keyup)="onQueryChange(query.value)"
+  />
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+    @for (result of queryResults(); track result) {
+    <mat-option
+      class="child-span-contents"
+      [value]="result"
+      (onSelectionChange)="onSelected($event)"
+      [disabled]="result.count === 0"
+    >
+      <mat-icon
+        class="dense-5 text-[20px] align-middle material-icons-outlined"
+        >{{ result.icon }}</mat-icon
+      >
+      <span>{{ result.name }}</span>
+      <span class="ml-auto">{{ result.count }}</span>
+    </mat-option>
+    }
+  </mat-autocomplete>
+  <mat-icon class="material-icons-outlined dense-5" matPrefix>{{
+    icon() ?? "search"
+  }}</mat-icon>
+  @if (query.value.length > 0) {
+  <mat-icon
+    class="hover:text-slate-950 hover:cursor-pointer"
+    (click)="onQueryChange(undefined)"
+    matSuffix
+    >close</mat-icon
+  >
+  }
+</mat-form-field>

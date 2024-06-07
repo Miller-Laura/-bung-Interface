@@ -1,0 +1,13 @@
+<div class="h-full grid grid-rows-[1fr,auto]">
+  <div class="overflow-y-auto overflow-x-hidden">
+    <ng-content></ng-content>
+  </div>
+  <mat-paginator
+    showFirstLastButtons="true"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    [pageIndex]="paging().skip"
+    [pageSize]="paging().take"
+    (page)="onPageChanged($event)"
+    [length]="paging().total"
+  ></mat-paginator>
+</div>
