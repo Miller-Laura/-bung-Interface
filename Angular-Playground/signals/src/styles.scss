@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/magenta-violet.css";
+@import "styles/fonts/source-sans-pro";
+@import "styles/fonts/material-icons-outlined";
+@import "styles/fonts/material-icons";
+
+html,
+body {
+  background-color: #1a1a1a;
+  color: rgb(238, 222, 231);
+  font-family: "Source Sans Pro", sans-serif;
+}

@@ -1,0 +1,33 @@
+<div class="timer">
+  <div class="counter-display">
+    <button mat-flat-button>{{ count }}</button>
+  </div>
+  <div>
+    <button mat-flat-button>Start</button>
+    <button mat-flat-button>Pause</button>
+  </div>
+
+  <div>
+    <button mat-flat-button>Set To</button>
+    <mat-form-field appearance="outline">
+      <input matInput id="setTo" type="number" min="0" [(ngModel)]="setTo" />
+    </mat-form-field>
+    <button mat-flat-button>Reset</button>
+  </div>
+
+  <div>
+    <button mat-flat-button>Count Up</button>
+    <button mat-flat-button>Count Down</button>
+  </div>
+
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label for="tickSpeed">Tick Speed</mat-label>
+      <input matInput type="number" min="0" [(ngModel)]="tickSpeed" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label for="countDiff">Count Diff</mat-label>
+      <input matInput type="number" min="1" [(ngModel)]="countDiff" />
+    </mat-form-field>
+  </div>
+</div>

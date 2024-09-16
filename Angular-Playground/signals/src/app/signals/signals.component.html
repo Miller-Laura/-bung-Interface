@@ -1,0 +1,55 @@
+<div class="main-content">
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>Writable Signals</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div>Current count: {{ count() }}</div>
+
+      <div>
+        Change count:
+        <button mat-button class="primary" (click)="increaseCount()">+</button
+        ><button mat-button class="primary" (click)="decreaseCount()">-</button>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Set new count</mat-label>
+        <input matInput [(ngModel)]="newCountValue" type="number" />
+      </mat-form-field>
+      <button mat-button class="primary" (click)="setNewCount()">Set</button>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>Computed Signals</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div>
+        Show double count:
+        <input [(ngModel)]="showCount" type="checkbox" />
+      </div>
+
+      <div>{{ conditionalCount() }}</div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="console">
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title
+        >Console
+        <button mat-button class="primary" (click)="clearLogs()">
+          clear
+        </button></mat-card-title
+      >
+    </mat-card-header>
+    <mat-card-content>
+      @for (log of logs; track $index) {
+      <div>{{ log }}</div>
+      }
+    </mat-card-content>
+  </mat-card>
+</div>

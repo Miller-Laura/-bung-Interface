@@ -1,0 +1,10 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+.main {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}

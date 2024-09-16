@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  justify-content: space-between;
+
+  .console {
+    max-height: 50%;
+  }
+}
