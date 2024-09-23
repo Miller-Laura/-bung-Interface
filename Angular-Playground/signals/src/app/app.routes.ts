@@ -7,5 +7,6 @@ export const routes: Routes = [
   { path: 'signals', component: SignalsComponent },
   { path: 'signals-tiy', component: SignalsTiyComponent },
   { path: 'signals-tiy-loesung', component: SignalsTiyLoesungComponent },
+  { path: 'rxjs', loadChildren: () => import('@rxjsLib').then(m => m.RXJS_ROUTES) },
   { path: '**', redirectTo: 'signals' },
 ];
