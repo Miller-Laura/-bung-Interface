@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  selector: 'app-signals-tiy-loesung',
+  selector: 'lib-signals-tiy-loesung',
   standalone: true,
   imports: [MatButtonModule, FormsModule, MatFormFieldModule, MatInputModule],
   templateUrl: './signals-tiy-loesung.component.html',

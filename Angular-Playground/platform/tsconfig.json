@@ -16,7 +16,8 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "paths": {
-      "@rxjsLib": ["projects/rxjs/"]
+      "@rxjsLib": ["projects/rxjs/"],
+      "@signalsLib": ["projects/signals/"]
     },
     "importHelpers": true,
     "target": "ES2022",

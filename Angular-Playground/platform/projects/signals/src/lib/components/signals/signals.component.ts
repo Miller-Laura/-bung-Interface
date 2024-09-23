@@ -6,7 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-signals',
+  selector: 'lib-signals',
   standalone: true,
   imports: [
     FormsModule,

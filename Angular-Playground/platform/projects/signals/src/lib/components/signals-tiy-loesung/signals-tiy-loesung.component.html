@@ -12,13 +12,7 @@
   <div>
     <button mat-flat-button (click)="setCountTo()">Set To</button>
     <mat-form-field appearance="outline">
-      <input
-        matInput
-        id="setTo"
-        type="number"
-        min="0"
-        [(ngModel)]="setTo"
-      />
+      <input matInput id="setTo" type="number" min="0" [(ngModel)]="setTo" />
     </mat-form-field>
     <button mat-flat-button (click)="resetTimer()">Reset</button>
   </div>
