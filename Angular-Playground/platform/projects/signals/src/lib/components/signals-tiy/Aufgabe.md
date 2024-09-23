@@ -1,4 +1,4 @@
-# Timer
+# Try-It-Yourself: Timer
 
 In dieser Komponent findest du ein Grundgerüst für einen Timer. Deine Aufgabe ist es alle
 Buttons, die in dieser Komponente zu finden sind, sinnvoll zu implementieren.
