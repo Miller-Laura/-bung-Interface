@@ -1,4 +1,12 @@
-import { Component, computed, effect, signal } from '@angular/core';
+import {
+  AfterViewChecked,
+  Component,
+  computed,
+  effect,
+  ElementRef,
+  signal,
+  ViewChild,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -18,12 +26,14 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './signals.component.html',
   styleUrl: './signals.component.scss',
 })
-export class SignalsComponent {
+export class SignalsComponent implements AfterViewChecked {
   showCount = signal(true);
   count = signal(0);
   newCountValue = 0;
   doubleCount = computed(() => this.count() * 2);
   logs: string[] = [];
+
+  @ViewChild('logContainer') private logContainer!: ElementRef;
 
   constructor() {
     effect(() => {
@@ -31,6 +41,10 @@ export class SignalsComponent {
       this.logMessage('Show count has changed to:', this.showCount());
     });
     effect(() => this.logChangedCount(this.count()));
+  }
+
+  ngAfterViewChecked() {
+    this.scrollToBottom();
   }
 
   logChangedCount(count: number) {
@@ -67,5 +81,10 @@ export class SignalsComponent {
 
   clearLogs() {
     this.logs = [];
+  }
+
+  private scrollToBottom(): void {
+    this.logContainer.nativeElement.scrollTop =
+      this.logContainer.nativeElement.scrollHeight;
   }
 }

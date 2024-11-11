@@ -1,0 +1,44 @@
+<div class="examples">
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>Map Example</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>Set multiplier</mat-label>
+        <input matInput [(ngModel)]="multiplier" type="number" />
+      </mat-form-field>
+      <button mat-button class="primary" (click)="mapExample()">Set</button>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>Filter Example</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <button mat-button class="primary" (click)="filterEvenExample()">
+        Filter even
+      </button>
+      <button mat-button class="primary" (click)="filterOddExample()">
+        Filter odd
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div>
+  <div class="elements-display">
+    <h1 class="original-elements-header">Original Elements</h1>
+    @for (element of originalElements; track element) {
+    <button mat-flat-button>{{ element }}</button>
+    }
+  </div>
+
+  <div class="elements-display">
+    <h1>Result Elements</h1>
+    @for (element of resultElements; track element) {
+    <button mat-flat-button>{{ element }}</button>
+    }
+  </div>
+</div>

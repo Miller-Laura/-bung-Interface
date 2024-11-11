@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+
+  .elements-display {
+    .mdc-button {
+      font-size: 64px;
+      min-width: 0px;
+      padding: 0.5rem;
+      margin: 0.2rem;
+      height: 6rem;
+    }
+  }
+
+  mat-form-field {
+    margin-top: 1rem;
+  }
+
+  .original-elements-header {
+    margin-top: 0;
+  }
+}
