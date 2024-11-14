@@ -1,44 +1,177 @@
+<button mat-button class="primary" (click)="showExamples = !showExamples">
+  Show Examples
+</button>
+@if (showExamples) {
 <div class="examples">
-  <mat-card appearance="outlined">
-    <mat-card-header>
-      <mat-card-title>Map Example</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-form-field appearance="outline">
-        <mat-label>Set multiplier</mat-label>
-        <input matInput [(ngModel)]="multiplier" type="number" />
-      </mat-form-field>
-      <button mat-button class="primary" (click)="mapExample()">Set</button>
-    </mat-card-content>
-  </mat-card>
-
-  <mat-card appearance="outlined">
-    <mat-card-header>
-      <mat-card-title>Filter Example</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <button mat-button class="primary" (click)="filterEvenExample()">
-        Filter even
-      </button>
-      <button mat-button class="primary" (click)="filterOddExample()">
-        Filter odd
-      </button>
-    </mat-card-content>
-  </mat-card>
-</div>
-
-<div>
-  <div class="elements-display">
-    <h1 class="original-elements-header">Original Elements</h1>
-    @for (element of originalElements; track element) {
-    <button mat-flat-button>{{ element }}</button>
-    }
+  <div>
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Map Example</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field appearance="outline">
+          <mat-label>Set multiplier</mat-label>
+          <input matInput [(ngModel)]="multiplier" type="number" />
+        </mat-form-field>
+        <button mat-button class="primary" (click)="mapExample()">Set</button>
+      </mat-card-content>
+    </mat-card>
   </div>
 
-  <div class="elements-display">
-    <h1>Result Elements</h1>
-    @for (element of resultElements; track element) {
-    <button mat-flat-button>{{ element }}</button>
-    }
+  <div>
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Filter Example</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <button mat-button class="primary" (click)="filterEvenExample()">
+          Filter even
+        </button>
+        <button mat-button class="primary" (click)="filterOddExample()">
+          Filter odd
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div>
+    <div class="elements-display">
+      <h1 class="original-elements-header">Original Elements</h1>
+      @for (element of originalElements; track element) {
+      <button mat-flat-button>{{ element }}</button>
+      }
+    </div>
+
+    <div class="elements-display">
+      <h1>Result Elements</h1>
+      @for (element of resultElements; track element) {
+      <button mat-flat-button>{{ element }}</button>
+      }
+    </div>
+  </div>
+</div>
+}
+
+<div class="star-wars-data">
+  <div>
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Clear</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <button mat-button class="primary" (click)="clearData()">Clear</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div>
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Star Wars People</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <button mat-button class="primary" (click)="loadPeople()">
+          Get People
+        </button>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Set page</mat-label>
+            <input
+              matInput
+              id="setTo"
+              type="number"
+              min="0"
+              [(ngModel)]="pagePeople"
+            />
+          </mat-form-field>
+        </div>
+        @for (person of people; track $index) {
+        <p>{{ person.name }}</p>
+        }
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div>
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Star Wars Films</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <button mat-button class="primary" (click)="loadFilms()">
+          Get Films
+        </button>
+        @for (film of films; track $index) {
+        <p>{{ film.title }}</p>
+        }
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div>
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Star Wars Planets</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <button mat-button class="primary" (click)="loadPlanets()">
+          Get Planets
+        </button>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Set page</mat-label>
+            <input
+              matInput
+              id="setTo"
+              type="number"
+              min="0"
+              [(ngModel)]="pagePlanets"
+            />
+          </mat-form-field>
+        </div>
+        @for (planet of planets; track $index) {
+        <p>{{ planet.name }}</p>
+        }
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div>
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Combine Latest</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <button mat-button class="primary" (click)="combineLatestExample()">
+          Load Data
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div>
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Concat</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <button mat-button class="primary" (click)="concatExample()">
+          Load Data
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div>
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Merge</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <button mat-button class="primary" (click)="mergeExample()">
+          Load Data
+        </button>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>
