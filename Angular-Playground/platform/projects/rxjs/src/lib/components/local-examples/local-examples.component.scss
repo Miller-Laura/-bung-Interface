@@ -1,9 +1,4 @@
 :host {
-  display: flex;
-  height: 100%;
-  column-gap: 1rem;
-  flex-wrap: wrap;
-
   .examples {
     display: flex;
     column-gap: 1rem;
@@ -19,16 +14,15 @@
     }
   }
 
-  .star-wars-data {
-    display: flex;
-    column-gap: 1rem;
+  .original-elements-header {
+    margin-top: 0;
+  }
+
+  .elements-container {
+    margin-left: auto;
   }
 
   mat-form-field {
     margin-top: 1rem;
-  }
-
-  .original-elements-header {
-    margin-top: 0;
   }
 }

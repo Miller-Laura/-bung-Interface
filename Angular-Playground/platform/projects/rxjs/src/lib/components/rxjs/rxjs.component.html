@@ -1,1 +1,10 @@
-<lib-operator-examples></lib-operator-examples>
+<mat-tab-group
+  mat-stretch-tabs="false"
+  mat-align-tabs="center"
+  [selectedIndex]="1"
+>
+  <mat-tab label="Local Examples"
+    ><lib-local-examples></lib-local-examples
+  ></mat-tab>
+  <mat-tab label="API Examples"><lib-api-examples> </lib-api-examples></mat-tab>
+</mat-tab-group>

@@ -11,6 +11,7 @@ import { Planets } from '../models/planets';
 })
 export class LoadDataService {
   swapiPeopleUrl = 'https://swapi.dev/api/people/?page=';
+  swapiPersonUrl = 'https://swapi.dev/api/people/';
   swapiFilmsUrl = 'https://swapi.dev/api/films/';
   swapiPlanetsUrl = 'https://swapi.dev/api/planets/?page=';
 
@@ -27,6 +28,15 @@ export class LoadDataService {
       );
   }
 
+  getPerson(id: number): Observable<People> {
+    return this.httpClient.get<People>(this.swapiPersonUrl + id).pipe(
+      map((response) => {
+        response.type = 'people';
+        return response;
+      })
+    );
+  }
+
   getFilms(filmId?: number): Observable<Film[]> {
     return this.httpClient
       .get<ResponseWrapper<Film>>(
@@ -37,6 +47,10 @@ export class LoadDataService {
           response.results.map((film) => ({ ...film, type: 'films' }))
         )
       );
+  }
+
+  getFilmByUrl(url: string): Observable<Film> {
+    return this.httpClient.get<Film>(url);
   }
 
   getPlanets(page?: number): Observable<Planets[]> {

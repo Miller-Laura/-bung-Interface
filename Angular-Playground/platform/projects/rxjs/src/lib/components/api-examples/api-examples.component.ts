@@ -1,68 +1,46 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { combineLatest, concat, filter, map, merge, of, toArray } from 'rxjs';
 import { LoadDataService } from '../../services/load-data.service';
 import { People } from '../../models/people';
 import { Film } from '../../models/film';
 import { Planets } from '../../models/planets';
+import {
+  combineLatest,
+  concat,
+  concatMap,
+  delay,
+  map,
+  merge,
+  mergeMap,
+  switchMap,
+  timer,
+} from 'rxjs';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'lib-operator-examples',
+  selector: 'lib-api-examples',
   standalone: true,
   imports: [
+    MatCardModule,
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatCardModule,
   ],
-  templateUrl: './operator-examples.component.html',
-  styleUrl: './operator-examples.component.scss',
+  templateUrl: './api-examples.component.html',
+  styleUrl: './api-examples.component.scss',
 })
-export class OperatorExamplesComponent {
-  originalElements: number[] = [1, 2, 3, 4, 5, 6];
-  resultElements: number[] = [1, 2, 3, 4, 5, 6];
-  numbers = of(1, 2, 3, 4, 5, 6);
-  strings = of('a', 'b', 'c', 'd', 'e', 'f');
-  multiplier: number = 0;
+export class ApiExamplesComponent {
   loadDataService = inject(LoadDataService);
   people: People[] = [];
   films: Film[] = [];
   planets: Planets[] = [];
-  showExamples = true;
   pagePeople = 1;
   pagePlanets = 1;
-
-  mapExample() {
-    this.numbers
-      .pipe(
-        map((value) => value * this.multiplier),
-        toArray()
-      )
-      .subscribe((value) => (this.resultElements = value));
-  }
-
-  filterEvenExample() {
-    this.numbers
-      .pipe(
-        filter((value) => value % 2 === 0),
-        toArray()
-      )
-      .subscribe((value) => (this.resultElements = value));
-  }
-
-  filterOddExample() {
-    this.numbers
-      .pipe(
-        filter((value) => value % 2 !== 0),
-        toArray()
-      )
-      .subscribe((value) => (this.resultElements = value));
-  }
+  personId = 1;
 
   loadPeople() {
     this.loadDataService
@@ -81,6 +59,7 @@ export class OperatorExamplesComponent {
   }
 
   combineLatestExample() {
+    this.clearData();
     combineLatest([
       this.loadDataService.getPeople(this.pagePeople),
       this.loadDataService.getFilms(),
@@ -93,6 +72,7 @@ export class OperatorExamplesComponent {
   }
 
   concatExample() {
+    this.clearData();
     concat(
       this.loadDataService.getPeople(this.pagePeople),
       this.loadDataService.getFilms(),
@@ -101,11 +81,42 @@ export class OperatorExamplesComponent {
   }
 
   mergeExample() {
+    this.clearData();
     merge(
       this.loadDataService.getPeople(this.pagePeople),
       this.loadDataService.getFilms(),
       this.loadDataService.getPlanets(this.pagePlanets)
     ).subscribe((data) => this.setData(data));
+  }
+
+  mergeMapExample() {
+    this.clearData();
+    this.loadDataService
+      .getPerson(this.personId)
+      .pipe(
+        mergeMap((people) => {
+          this.people.push(people);
+          return people.films;
+        }),
+        mergeMap((film) => this.loadDataService.getFilmByUrl(film))
+      )
+      .subscribe((film) => this.films.push(film));
+  }
+
+  switchMapExample() {
+    this.clearData();
+    this.loadDataService
+      .getPeople(this.pagePeople)
+      .pipe(
+        switchMap((people) => people),
+        concatMap((people) => timer(1000).pipe(map(() => people))),
+        switchMap((person) => {
+          this.people.push(person);
+          return person.films;
+        }),
+        switchMap((film) => this.loadDataService.getFilmByUrl(film))
+      )
+      .subscribe((film) => this.films.push(film));
   }
 
   clearData() {
