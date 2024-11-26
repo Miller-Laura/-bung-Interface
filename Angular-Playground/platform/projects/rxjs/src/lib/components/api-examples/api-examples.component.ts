@@ -41,6 +41,8 @@ export class ApiExamplesComponent {
   pagePeople = 1;
   pagePlanets = 1;
   personId = 1;
+  filmId = 1;
+  planetId = 1;
 
   loadPeople() {
     this.loadDataService
@@ -101,6 +103,20 @@ export class ApiExamplesComponent {
         mergeMap((film) => this.loadDataService.getFilmByUrl(film))
       )
       .subscribe((film) => this.films.push(film));
+  }
+
+  concatMapExample() {
+    this.clearData();
+    this.loadDataService
+      .getFilm(this.filmId)
+      .pipe(
+        concatMap((film) => {
+          this.films.push(film);
+          return film.planets;
+        }),
+        concatMap((planet) => this.loadDataService.getPlanetByUrl(planet))
+      )
+      .subscribe((planet) => this.planets.push(planet));
   }
 
   switchMapExample() {

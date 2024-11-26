@@ -9,6 +9,16 @@
     margin-top: 1rem;
   }
 
+  .operators-container {
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    width: 50%;
+    flex-wrap: wrap;
+  }
+
   .data-container {
     margin-left: auto;
     display: flex;

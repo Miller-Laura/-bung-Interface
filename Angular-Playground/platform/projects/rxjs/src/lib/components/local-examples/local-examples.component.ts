@@ -5,6 +5,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { filter, map, of, toArray } from 'rxjs';
+import { MapExampleComponent } from './map-example/map-example.component';
+import { FilterExampleComponent } from './filter-example/filter-example.component';
 
 @Component({
   selector: 'lib-local-examples',
@@ -15,41 +17,12 @@ import { filter, map, of, toArray } from 'rxjs';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MapExampleComponent,
+    FilterExampleComponent,
   ],
   templateUrl: './local-examples.component.html',
   styleUrl: './local-examples.component.scss',
 })
 export class LocalExamplesComponent {
-  originalElements: number[] = [1, 2, 3, 4, 5, 6];
-  resultElements: number[] = [1, 2, 3, 4, 5, 6];
-  numbers = of(1, 2, 3, 4, 5, 6);
-  strings = of('a', 'b', 'c', 'd', 'e', 'f');
-  multiplier: number = 0;
-
-  mapExample() {
-    this.numbers
-      .pipe(
-        map((value) => value * this.multiplier),
-        toArray()
-      )
-      .subscribe((value) => (this.resultElements = value));
-  }
-
-  filterEvenExample() {
-    this.numbers
-      .pipe(
-        filter((value) => value % 2 === 0),
-        toArray()
-      )
-      .subscribe((value) => (this.resultElements = value));
-  }
-
-  filterOddExample() {
-    this.numbers
-      .pipe(
-        filter((value) => value % 2 !== 0),
-        toArray()
-      )
-      .subscribe((value) => (this.resultElements = value));
-  }
+  selectedExample: string = 'map';
 }

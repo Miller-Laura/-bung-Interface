@@ -1,81 +1,107 @@
 <div class="star-wars-data">
-  <div>
-    <mat-card appearance="outlined">
-      <mat-card-header>
-        <button mat-button class="primary" (click)="clearData()">
-          <mat-card-title>Clear Data</mat-card-title>
-        </button>
-      </mat-card-header>
-      <mat-card-content></mat-card-content>
-    </mat-card>
-  </div>
+  <div class="operators-container">
+    <div>
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <button mat-button class="primary" (click)="clearData()">
+            <mat-card-title>Clear Data</mat-card-title>
+          </button>
+        </mat-card-header>
+        <mat-card-content></mat-card-content>
+      </mat-card>
+    </div>
 
-  <div>
-    <mat-card appearance="outlined">
-      <mat-card-header>
-        <button mat-button class="primary" (click)="combineLatestExample()">
-          <mat-card-title>Combine Latest</mat-card-title>
-        </button>
-      </mat-card-header>
-      <mat-card-content></mat-card-content>
-    </mat-card>
-  </div>
+    <div>
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <button mat-button class="primary" (click)="combineLatestExample()">
+            <mat-card-title>Combine Latest</mat-card-title>
+          </button>
+        </mat-card-header>
+        <mat-card-content></mat-card-content>
+      </mat-card>
+    </div>
 
-  <div>
-    <mat-card appearance="outlined">
-      <mat-card-header>
-        <button mat-button class="primary" (click)="concatExample()">
-          <mat-card-title>Concat</mat-card-title>
-        </button>
-      </mat-card-header>
-      <mat-card-content></mat-card-content>
-    </mat-card>
-  </div>
+    <div>
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <button mat-button class="primary" (click)="concatExample()">
+            <mat-card-title>Concat</mat-card-title>
+          </button>
+        </mat-card-header>
+        <mat-card-content></mat-card-content>
+      </mat-card>
+    </div>
 
-  <div>
-    <mat-card appearance="outlined">
-      <mat-card-header>
-        <button mat-button class="primary" (click)="mergeExample()">
-          <mat-card-title>Merge</mat-card-title>
-        </button>
-      </mat-card-header>
-      <mat-card-content></mat-card-content>
-    </mat-card>
-  </div>
+    <div>
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <button mat-button class="primary" (click)="mergeExample()">
+            <mat-card-title>Merge</mat-card-title>
+          </button>
+        </mat-card-header>
+        <mat-card-content></mat-card-content>
+      </mat-card>
+    </div>
 
-  <div>
-    <mat-card appearance="outlined">
-      <mat-card-header>
-        <button mat-button class="primary" (click)="mergeMapExample()">
-          <mat-card-title>Merge Map</mat-card-title>
-        </button>
-      </mat-card-header>
-      <mat-card-content>
-        <div>
-          <mat-form-field appearance="outline">
-            <mat-label>Set person id</mat-label>
-            <input
-              matInput
-              id="setTo"
-              type="number"
-              min="0"
-              [(ngModel)]="personId"
-            />
-          </mat-form-field>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
+    <div>
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <button mat-button class="primary" (click)="mergeMapExample()">
+            <mat-card-title>Merge Map</mat-card-title>
+          </button>
+        </mat-card-header>
+        <mat-card-content>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Set person id</mat-label>
+              <input
+                matInput
+                id="setTo"
+                type="number"
+                min="0"
+                [(ngModel)]="personId"
+              />
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
 
-  <div>
-    <mat-card appearance="outlined">
-      <mat-card-header>
-        <button mat-button class="primary" (click)="switchMapExample()">
-          <mat-card-title> Switch Map </mat-card-title>
-        </button>
-      </mat-card-header>
-      <mat-card-content> </mat-card-content>
-    </mat-card>
+    <div>
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <button mat-button class="primary" (click)="concatMapExample()">
+            <mat-card-title>Concat Map</mat-card-title>
+          </button>
+        </mat-card-header>
+        <mat-card-content>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Set film id</mat-label>
+              <input
+                matInput
+                id="setTo"
+                type="number"
+                min="0"
+                [(ngModel)]="filmId"
+              />
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div>
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <button mat-button class="primary" (click)="switchMapExample()">
+            <mat-card-title> Switch Map </mat-card-title>
+          </button>
+        </mat-card-header>
+        <mat-card-content> </mat-card-content>
+      </mat-card>
+    </div>
   </div>
 
   <div class="data-container">

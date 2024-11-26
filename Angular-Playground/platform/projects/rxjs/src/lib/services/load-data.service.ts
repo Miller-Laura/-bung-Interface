@@ -14,6 +14,7 @@ export class LoadDataService {
   swapiPersonUrl = 'https://swapi.dev/api/people/';
   swapiFilmsUrl = 'https://swapi.dev/api/films/';
   swapiPlanetsUrl = 'https://swapi.dev/api/planets/?page=';
+  swapiPlanetUrl = 'https://swapi.dev/api/planets/';
 
   private httpClient = inject(HttpClient);
 
@@ -37,16 +38,23 @@ export class LoadDataService {
     );
   }
 
-  getFilms(filmId?: number): Observable<Film[]> {
+  getFilms(): Observable<Film[]> {
     return this.httpClient
-      .get<ResponseWrapper<Film>>(
-        `${this.swapiFilmsUrl}${filmId ? filmId : ''}`
-      )
+      .get<ResponseWrapper<Film>>(this.swapiFilmsUrl)
       .pipe(
         map((response) =>
           response.results.map((film) => ({ ...film, type: 'films' }))
         )
       );
+  }
+
+  getFilm(id: number): Observable<Film> {
+    return this.httpClient.get<Film>(this.swapiFilmsUrl + id).pipe(
+      map((response) => {
+        response.type = 'films';
+        return response;
+      })
+    );
   }
 
   getFilmByUrl(url: string): Observable<Film> {
@@ -62,5 +70,18 @@ export class LoadDataService {
           response.results.map((planet) => ({ ...planet, type: 'planets' }))
         )
       );
+  }
+
+  getPlanet(id: number): Observable<Planets> {
+    return this.httpClient.get<Planets>(this.swapiPlanetUrl + id).pipe(
+      map((response) => {
+        response.type = 'planets';
+        return response;
+      })
+    );
+  }
+
+  getPlanetByUrl(url: string): Observable<Planets> {
+    return this.httpClient.get<Planets>(url);
   }
 }
