@@ -90,7 +90,7 @@ export class ApiExamplesComponent {
       this.loadDataService.getPlanets(this.pagePlanets)
     ).subscribe((data) => this.setData(data));
   }
-
+//hier
   mergeMapExample() {
     this.clearData();
     this.loadDataService
