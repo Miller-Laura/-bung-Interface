@@ -1,7 +1,22 @@
+@use "sass:meta";
+@use "@angular/material" as mat;
 @import "../node_modules/@angular/material/prebuilt-themes/magenta-violet.css";
-@import "styles/fonts/source-sans-pro";
-@import "styles/fonts/material-icons-outlined";
-@import "styles/fonts/material-icons";
+@include meta.load-css("styles/fonts/source-sans-pro");
+@include meta.load-css("styles/fonts/material-icons-outlined");
+@include meta.load-css("styles/fonts/material-icons");
+
+$my-theme: mat.define-theme(
+  $config: (
+    typography: (
+      plain-family: '"Source Sans Pro", sans-serif',
+      brand-family: '"Source Sans Pro", sans-serif',
+    ),
+  ),
+);
+
+:root {
+  @include mat.all-component-typographies($my-theme);
+}
 
 html,
 body {
