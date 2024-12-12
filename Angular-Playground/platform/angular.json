@@ -153,6 +153,39 @@
           }
         }
       }
+    },
+    "declarative-programming": {
+      "projectType": "library",
+      "root": "projects/declarative-programming",
+      "sourceRoot": "projects/declarative-programming/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/declarative-programming/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/declarative-programming/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/declarative-programming/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/declarative-programming/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   }
 }

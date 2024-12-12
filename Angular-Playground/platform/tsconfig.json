@@ -17,7 +17,12 @@
     "moduleResolution": "node",
     "paths": {
       "@rxjsLib": ["projects/rxjs/"],
-      "@signalsLib": ["projects/signals/"]
+      "@signalsLib": [
+        "projects/signals/"
+      ],
+      "declarative-programming": [
+        "./dist/declarative-programming"
+      ]
     },
     "importHelpers": true,
     "target": "ES2022",
