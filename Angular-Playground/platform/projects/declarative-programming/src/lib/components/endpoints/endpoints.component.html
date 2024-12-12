@@ -1,1 +1,7 @@
-<p>endpoints works!</p>
+<input #filter placeholder="Filter fruits" ngModel (ngModelChange)="setSearchValue(filter.value)"/>
+
+<ul>
+  @for (fruit of filteredFruits(); track fruit.name) {
+    <li>{{ fruit.name }}</li>
+  }
+</ul>
