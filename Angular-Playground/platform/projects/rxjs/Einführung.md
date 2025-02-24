@@ -1,5 +1,14 @@
 # Reactive Extensions for JavaScript (RxJS)
 
+## Resourcen
+
+- https://rxjs.dev/api?type=function
+- https://rxmarbles.com/
+
+## Einführung
+
+Aus dem englischen: https://rxjs.dev/guide/overview
+
 RxJS ist eine Library, die es ermöglicht asynchrone und eventbasierte Programme zu schreiben indem sie beobachtbare Sequenzen (Observables) nutzt.
 
 _Benötigtes Vorwissen:_

@@ -1,6 +1,6 @@
 # Signals
 
-Ein Signal ist ein Wrapper um einen Wert (sei es primitiv oder komplex), der sogenannte Consumer benachrichtig sobald sich dieser Wert ändert.
+Ein Signal ist ein Wrapper um einen Wert (sei es primitiv oder komplex), der sogenannte Consumer benachrichtigt sobald sich dieser Wert ändert.
 
 ### Writable Signals
 
