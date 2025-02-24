@@ -2,6 +2,10 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: 'basics',
+    loadChildren: () => import('@basicsLib').then((m) => m.BASICS_ROUTES),
+  },
+  {
     path: 'signals',
     loadChildren: () => import('@signalsLib').then((m) => m.SIGNALS_ROUTES),
   },

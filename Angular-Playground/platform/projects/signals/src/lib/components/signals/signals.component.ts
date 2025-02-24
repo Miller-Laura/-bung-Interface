@@ -31,6 +31,7 @@ export class SignalsComponent implements AfterViewChecked {
   count = signal(0);
   newCountValue = 0;
   doubleCount = computed(() => this.count() * 2);
+  isEven = computed(() => this.count() % 2 === 0);
   logs: string[] = [];
 
   @ViewChild('logContainer') private logContainer!: ElementRef;
@@ -39,6 +40,7 @@ export class SignalsComponent implements AfterViewChecked {
     effect(() => {
       this.logMessage('DoubleCount has changed to:', this.doubleCount());
       this.logMessage('Show count has changed to:', this.showCount());
+      this.logMessage('Is even has changed to:', this.isEven());
     });
     effect(() => this.logChangedCount(this.count()));
   }
