@@ -1,5 +1,6 @@
 {
 	"dependencies": {
+		"@angular/cli": "^19.2.11",
 		"@angular/material": "^18.2.4"
 	}
 }

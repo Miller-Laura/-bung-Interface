@@ -1,0 +1,28 @@
+.first-item {
+  background-color: yellow;
+}
+
+#ul-item2 {
+  background-color: pink;
+}
+
+#ol-item2 {
+  background-color: blue;
+}
+
+div {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+div .frame-top {
+  border: none;
+  border-top: 1px solid black;
+}
+
+div.frame-bottom {
+  border: none;
+  border-bottom: 1px solid black;
+}

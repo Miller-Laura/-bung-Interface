@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZvQGlVIvsrU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Laura.Miller\\Coding\\Laura-Miller\\CodeWars\\CodeWars\\CodeWars.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Laura.Miller\\.nuget\\packages\\nunit\\4.3.2\\nunit.4.3.2.nupkg.sha512"
+  ],
+  "logs": []
+}
