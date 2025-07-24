@@ -1,0 +1,48 @@
+body {
+  text-align: center;
+  margin-top: 100px;
+  font-size: medium;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #def3f3;
+}
+h1 {
+  text-align: left;
+  margin-top: 250px;
+  margin-left: 400px;
+  font-size: 30px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: #59268f;
+}
+#taskInput {
+  padding: 8px;
+  width: 200px;
+}
+#addBtn {
+  font-weight: bold;
+  background: #93b795;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#taskList li {
+  margin: 8px 0;
+}
+
+.done {
+  text-decoration: line-through;
+  color: #888;
+}
+
+#deleteBtn {
+  font-weight: bold;
+  background: #eb7373;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}

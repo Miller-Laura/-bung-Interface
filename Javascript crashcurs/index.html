@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="styling.css" />
   </head>
   <body>
-    <input id="nameInput" />
-    <button id="greetButton">Begrüßen</button>
-    <div id="greeting"></div>
-    <button name="button">Click me!</button>
+    <h1>Deine ToDo-Liste</h1>
+    Task <input type="text" id="taskInput" placeholder="Neues Todo.." />
+    <button id="addBtn">Hinzufügen</button>
+    <ul id="taskList"></ul>
+    <button name="button">Gib ein Todo ein</button>
     <div id="ausgabe"></div>
+    <button id="deleteBtn">Löschen</button>
     <script src="app.ts"></script>
   </body>
 </html>
