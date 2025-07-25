@@ -1,9 +1,18 @@
-const numbers = [1, 2, 3, 4];
-function sum(a: number[]) {
-  let sumOfNumbers = 0;
-  for (let i = 0; i < a.length; i++) {
-    sumOfNumbers += a[i];
+const addBtn = document.getElementById("addBtn") as HTMLButtonElement;
+const taskInput = document.getElementById("taskInput") as HTMLInputElement;
+const taskList = document.getElementById("taskList") as HTMLUListElement;
+
+addBtn.addEventListener("click", () => {
+  const taskText = taskInput.value.trim();
+  if (taskText !== "") {
+    const li = document.createElement("li");
+    li.textContent = taskText;
+    taskList.appendChild(li);
+    taskInput.value = ""; // Eingabefeld leeren
   }
-  console.log(sumOfNumbers);
-}
-sum(numbers);
+});
+const deleteBtn = document.getElementById("deleteBtn") as HTMLButtonElement;
+
+deleteBtn.addEventListener("click", () => {
+  taskList.innerHTML = ""; // Liste leeren
+});

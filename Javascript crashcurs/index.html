@@ -1,19 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>ToDo-Liste</title>
     <link rel="stylesheet" href="styling.css" />
   </head>
   <body>
-    <h1>Deine ToDo-Liste</h1>
-    Task <input type="text" id="taskInput" placeholder="Neues Todo.." />
-    <button id="addBtn">Hinzufügen</button>
-    <ul id="taskList"></ul>
-    <button name="button">Gib ein Todo ein</button>
-    <div id="ausgabe"></div>
-    <button id="deleteBtn">Löschen</button>
+    <!-- Kopfbereich mit Bild und Titel -->
+     <div class = "header">
+      <img src="lilie.jpg" alt="Blume" class="rounded-image" />
+      <h1>Deine ToDo-Liste</h1> <!-- Eingabefeld und Buttons -->
+    </div>
+    <div>
+      Task <input type="text" id="taskInput" placeholder="Neues Todo.." />
+      <button id="addBtn">Hinzufügen</button>
+      <ul id="taskList"></ul> <!-- aufgabenliste -->
+      </button>
+      <div id="ausgabe"></div> <!-- Ausgabe-Bereich -->
+      <button id="deleteBtn">Löschen</button>
+    </div>
+    <!-- Skript -->
     <script src="app.ts"></script>
   </body>
 </html>
