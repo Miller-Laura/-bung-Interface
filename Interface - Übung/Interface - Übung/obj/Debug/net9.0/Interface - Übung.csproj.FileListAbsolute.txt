@@ -1,0 +1,5 @@
+C:\Users\laura.miller\Coding\Interface - Übung\Interface - Übung\obj\Debug\net9.0\Interface - Übung.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\laura.miller\Coding\Interface - Übung\Interface - Übung\obj\Debug\net9.0\Interface - Übung.AssemblyInfoInputs.cache
+C:\Users\laura.miller\Coding\Interface - Übung\Interface - Übung\obj\Debug\net9.0\Interface - Übung.AssemblyInfo.cs
+C:\Users\laura.miller\Coding\Interface - Übung\Interface - Übung\obj\Debug\net9.0\Interface - Übung.csproj.CoreCompileInputs.cache
+C:\Users\laura.miller\Coding\Interface - Übung\Interface - Übung\obj\Debug\net9.0\Interface - Übung.sourcelink.json
